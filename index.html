@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#100d26" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%BF%3C/text%3E%3C/svg%3E" />
+  <title>Neon Bloom — Battle of the Blossoms</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Neon Bloom home"><span class="brand-mark">✿</span><span>NEON <b>BLOOM</b></span></a>
+      <div class="top-meta"><span class="live-dot"></span> ARCADE MODE <i></i> BEST OF 3</div>
+      <button class="sound-button" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">♫ <span>SOUND ON</span></button>
+    </header>
+
+    <section class="game-frame" aria-label="Neon Bloom fighting game">
+      <canvas id="game" width="960" height="540" aria-label="Fight arena"></canvas>
+      <div class="hud" id="hud">
+        <div class="fighter-hud left-hud">
+          <div class="fighter-name"><span class="name-icon">✦</span><span>AKARI</span><small>THE SUN KICKER</small></div>
+          <div class="health-track"><div class="health-fill player-health" id="playerHealth"></div><span class="health-shine"></span></div>
+          <div class="round-pips" id="playerPips"><i></i><i></i></div>
+        </div>
+        <div class="round-clock"><span>ROUND</span><strong id="roundNumber">01</strong><em id="timer">60</em></div>
+        <div class="fighter-hud right-hud">
+          <div class="fighter-name"><span>VESPER</span><span class="name-icon">✦</span><small>THE MOON VIXEN</small></div>
+          <div class="health-track"><div class="health-fill rival-health" id="rivalHealth"></div><span class="health-shine"></span></div>
+          <div class="round-pips" id="rivalPips"><i></i><i></i></div>
+        </div>
+      </div>
+      <div class="announce" id="announce" aria-live="polite"></div>
+      <div class="start-screen" id="startScreen">
+        <div class="start-card">
+          <div class="eyebrow"><span></span> THE CITY NEVER SLEEPS <span></span></div>
+          <h1>Battle of<br /><em>the Blossoms</em></h1>
+          <p>Two legends. One rooftop. Let your spirit bloom.</p>
+          <button class="primary-button" id="startButton">ENTER THE ARENA <span>↗</span></button>
+          <div class="start-foot"><span>1 PLAYER <i>•</i> VS CPU</span><span>✿ &nbsp; ROUND 1</span></div>
+        </div>
+      </div>
+      <div class="result-screen hidden" id="resultScreen">
+        <div class="result-card"><div class="eyebrow">THE CROWD GOES WILD</div><h2 id="resultTitle">AKARI WINS!</h2><p id="resultMessage">A beautiful finish.</p><button class="primary-button" id="rematchButton">FIGHT AGAIN <span>↻</span></button></div>
+      </div>
+      <div class="combo-toast" id="comboToast"></div>
+    </section>
+
+    <section class="control-deck" aria-label="Game controls">
+      <div class="movement-controls">
+        <div class="deck-label"><span>MOVE</span><kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd></div>
+        <div class="touch-pad">
+          <button class="control-button move-button" data-control="left" aria-label="Move left">‹</button>
+          <button class="control-button move-button" data-control="right" aria-label="Move right">›</button>
+          <button class="control-button jump-button" data-control="jump" aria-label="Jump">↑</button>
+        </div>
+      </div>
+      <div class="deck-divider"></div>
+      <div class="attack-controls">
+        <div class="deck-label"><span>ATTACK</span><kbd>J</kbd><kbd>K</kbd></div>
+        <div class="attack-buttons">
+          <button class="control-button punch" data-control="punch"><span>✦</span><b>PUNCH</b><small>J</small></button>
+          <button class="control-button kick" data-control="kick"><span>➶</span><b>KICK</b><small>K</small></button>
+        </div>
+      </div>
+      <div class="deck-divider specials-divider"></div>
+      <div class="special-controls">
+        <div class="deck-label"><span>SPECIAL MOVES</span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd></div>
+        <div class="special-buttons">
+          <button class="control-button special special-one" data-control="special1"><span>☄</span><b>MOON ARC</b><small>1</small></button>
+          <button class="control-button special special-two" data-control="special2"><span>➤</span><b>LOTUS DASH</b><small>2</small></button>
+          <button class="control-button special special-three" data-control="special3"><span>✺</span><b>SOLAR BLOOM</b><small>3</small></button>
+        </div>
+      </div>
+    </section>
+    <footer class="footer"><span>✿ &nbsp; MASTER YOUR RHYTHM, FIND YOUR FLOW</span><span>DESIGNED FOR TOUCH & KEYBOARD</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
