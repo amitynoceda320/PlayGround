@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#100d1c" />
+  <title>Neon Ring — Duel of the Storm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="cabinet" id="cabinet">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Neon Ring home"><span class="brand-mark">N<span>R</span></span><span class="brand-name">NEON<span>RING</span></span></a>
+      <div class="season"><i></i> ARCADE SERIES <span>·</span> SEASON 04</div>
+      <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound"><span class="sound-icon">♪</span><span>SOUND <b id="soundState">ON</b></span></button>
+    </header>
+
+    <section class="game-shell" aria-label="Fighting game">
+      <div class="arena-top">
+        <div class="fighter-hud left-hud">
+          <div class="hud-name"><span class="player-tag">P1</span><strong>AKARI</strong><span class="country">TOKYO, JP</span></div>
+          <div class="health-track"><div class="health-fill" id="playerHealth"></div><span class="health-shine"></span></div>
+          <div class="meter-track"><div id="playerMeter" class="meter-fill"></div><span>KI</span></div>
+        </div>
+        <div class="round-clock"><span>ROUND</span><strong id="roundNumber">01</strong><div class="timer" id="timer">99</div></div>
+        <div class="fighter-hud right-hud">
+          <div class="hud-name"><span class="country">SEOUL, KR</span><strong>YUNA</strong><span class="player-tag cpu-tag">CPU</span></div>
+          <div class="health-track"><div class="health-fill" id="cpuHealth"></div><span class="health-shine"></span></div>
+          <div class="meter-track"><div id="cpuMeter" class="meter-fill"></div><span>KI</span></div>
+        </div>
+      </div>
+      <div class="arena-frame">
+        <canvas id="game" aria-label="Akari versus Yuna fighting arena"></canvas>
+        <div class="arena-grain"></div>
+        <div class="versus-stamp" id="vsStamp"><span>ROUND 01</span><strong>FIGHT!</strong></div>
+        <div class="toast" id="toast" aria-live="polite"></div>
+        <div class="corner-note"><span>YOKOHAMA</span><i></i> NIGHT MARKET</div>
+      </div>
+      <div class="arena-footer">
+        <div class="fighter-identity"><span class="identity-icon akari-icon">A</span><span><b>AKARI</b><small>THE RED COMET</small></span></div>
+        <div class="match-status"><i></i><span id="statusText">FIGHTING SPIRIT: <b>UNBREAKABLE</b></span></div>
+        <div class="fighter-identity right-identity"><span><b>YUNA</b><small>THE MOONBLADE</small></span><span class="identity-icon yuna-icon">Y</span></div>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Controls and special moves">
+      <div class="control-panel movement-panel">
+        <div class="panel-kicker"><span>01</span> MOVEMENT</div>
+        <div class="movement-content">
+          <div class="dpad" aria-label="Movement controls">
+            <button class="dpad-btn up" data-action="up" aria-label="Jump up">↑</button>
+            <button class="dpad-btn left" data-action="left" aria-label="Move left">←</button>
+            <button class="dpad-btn down" data-action="down" aria-label="Crouch">↓</button>
+            <button class="dpad-btn right" data-action="right" aria-label="Move right">→</button>
+            <span class="dpad-core">✦</span>
+          </div>
+          <div class="control-copy"><b>TAKE YOUR POSITION</b><span>Move · Jump · Crouch</span><small><kbd>A</kbd><kbd>D</kbd> MOVE <kbd>W</kbd> JUMP</small></div>
+        </div>
+      </div>
+
+      <div class="control-panel special-panel">
+        <div class="special-heading"><div class="panel-kicker"><span>02</span> SIGNATURE TECHNIQUES</div><div class="ready-label"><i></i> ALL SYSTEMS READY</div></div>
+        <div class="move-grid">
+          <button class="move-card move-flame" data-action="special1"><span class="move-key">Q</span><span class="move-art">✺</span><span class="move-info"><b>COMET KISS</b><small>EMBER PROJECTILE</small></span><span class="move-cost">25 <i>KI</i></span></button>
+          <button class="move-card move-sky" data-action="special2"><span class="move-key">E</span><span class="move-art">↟</span><span class="move-info"><b>SKYBREAKER</b><small>RISING STRIKE</small></span><span class="move-cost">35 <i>KI</i></span></button>
+          <button class="move-card move-moon" data-action="special3"><span class="move-key">R</span><span class="move-art">☾</span><span class="move-info"><b>MOONFALL</b><small>PHANTOM DASH</small></span><span class="move-cost">45 <i>KI</i></span></button>
+        </div>
+      </div>
+
+      <div class="control-panel action-panel">
+        <div class="panel-kicker"><span>03</span> ATTACK</div>
+        <div class="action-content"><button class="attack-btn punch" data-action="punch"><span>✦</span><b>JAB</b><kbd>J</kbd></button><button class="attack-btn kick" data-action="kick"><span>◈</span><b>KICK</b><kbd>K</kbd></button></div>
+        <div class="action-hint">Chain your hits for a combo</div>
+      </div>
+    </section>
+    <footer class="bottom-bar"><span>© 2025 NEON RING STUDIOS</span><span class="footer-center"><i></i> PRESS <kbd>SPACE</kbd> TO PAUSE <span class="footer-dot">·</span> <kbd>ENTER</kbd> REMATCH</span><button id="rematchBtn">↻ &nbsp; REMATCH</button></footer>
+  </main>
+  <div class="mobile-hint" id="mobileHint">Touch the controls to fight <span>✦</span></div>
+  <script src="game.js"></script>
+</body>
+</html>
